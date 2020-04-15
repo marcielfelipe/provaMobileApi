@@ -51,20 +51,26 @@ module.exports = {
         if(idade <= 18){//1
             return res.status(200).json({
                 message:"Limite de cŕedito não disponível.",
-                valoLimite:`R$ ${ValorLimite}`
+                Cliente:Nome,
+                CPF:Cpf,
+                valorLimite:`R$ ${ValorLimite}`
             });
         };
 
         if(RestricaoSerasa=="S"& Empregado=="N"){//2
             return res.status(200).json({
                 message:"Limite de Crédido não disponível.",
-                valoLimite:`R$ ${ValorLimite}`
+                Cliente:Nome,
+                CPF:Cpf,
+                valorLimite:`R$ ${ValorLimite}`
             });
         };
         if(RestricaoSerasa=="S"& Empregado=="S" & TempoEmpregoAtual<6){//3
             return res.status(200).json({
                 message:"Limite de Crédido não disponível.",
-                valoLimite:`R$ ${ValorLimite}`
+                Cliente:Nome,
+                CPF:Cpf,
+                valorLimite:`R$ ${ValorLimite}`
             });
         };
         if(RestricaoSerasa=="S"& Empregado=="S" & TempoEmpregoAtual>=6 & TempoEmpregoAtual<12){//4
@@ -72,6 +78,8 @@ module.exports = {
 
             return res.status(200).json({
                 message:"Limite 10% do salário bruto disponível.",
+                Cliente:Nome,
+                CPF:Cpf,
                 valorLimite:`R$ ${ValorLimite}`
             });
         };
@@ -80,19 +88,25 @@ module.exports = {
 
             return res.status(200).json({
                 message:"Limite 20% do salário bruto disponível.",
+                Cliente:Nome,
+                CPF:Cpf,
                 valorLimite:`R$ ${ValorLimite}`
             });
         };
         if(RestricaoSerasa=="N"& Empregado=="N"){//6
             return res.status(200).json({
                 message:"Limite de crédito não disponível.",
-                valoLimite:`R$ ${ValorLimite}`
+                Cliente:Nome,
+                CPF:Cpf,
+                valorLimite:`R$ ${ValorLimite}`
             });
         };
         if(RestricaoSerasa=="N"& Empregado=="S" & TempoEmpregoAtual<6){//7
             ValorLimite=SalarioBruto *0.1;
             return res.status(200).json({
                 message:"Limite 10% do salário bruto disponível.",
+                Cliente:Nome,
+                CPF:Cpf,
                 valorLimite:`R$ ${ValorLimite}`
             });
         };
@@ -101,6 +115,8 @@ module.exports = {
 
             return res.status(200).json({
                 message:"Limite 20% do salário bruto disponível.",
+                Cliente:Nome,
+                CPF:Cpf,
                 valorLimite:`R$ ${ValorLimite}`
             });
         };
@@ -109,6 +125,8 @@ module.exports = {
 
             return res.status(200).json({
                 message:"Limite 30% do salário bruto disponível.",
+                Cliente:Nome,
+                CPF:Cpf,
                 valorLimite:`R$ ${ValorLimite}`
             });
         };
