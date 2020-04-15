@@ -1,5 +1,5 @@
 const express = require ('express');
-
+const validarCpf = require('validar-cpf');
 
 module.exports = {
     CalculoCredito(req,res) {
@@ -43,7 +43,16 @@ module.exports = {
         
             return quantos_anos < 0 ? 0 : quantos_anos;
         }
-    
+        
+        if(!validarCpf(Cpf)){
+            return res.status(404).json({
+                message:"CPF inválido.",
+                Cliente:Nome,
+                CPF:Cpf
+
+            });
+        };
+        
         
         idade = idade(Data[2],Data[1],Data[0]);
         //console.log(idade);
